@@ -10,6 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose-unique-validator": "^2.0.3",
+    "mongoose-update-if-current": "^1.4.0",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.12"
   }
 }

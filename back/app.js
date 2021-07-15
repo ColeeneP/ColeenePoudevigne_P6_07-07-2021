@@ -3,9 +3,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const stuffRoutes = require('./routes/sauce');
+const sauceRoutes = require('./routes/sauce'); //importation du router
 const userRoutes = require('./routes/user');
 
+// connexion à MongoDB
+mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb+srv://coleene:OpenClassrooms@cluster0.gt548.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -22,5 +24,11 @@ app.use((req, res, next) => {
   });
 
 app.use(bodyParser.json());
+
+// Appel des routers
+app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/auth', userRoutes);
+app.use('/api/sauces', sauceRoutes);
+
 
 module.exports = app;
