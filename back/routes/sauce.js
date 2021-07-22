@@ -13,7 +13,7 @@ router.put('/:id', auth, multer, sauceCtrl.modifySauce);
 router.get('/:id', auth, multer, sauceCtrl.getOneSauce); // Récupération du controller d'accessibilité à un objet
 router.delete('/:id', auth, multer, sauceCtrl.deleteSauce);
 
-router.put('/:id', auth, sauceCtrl.likeSauce);
+router.post('/:id/like', auth, sauceCtrl.likeSauce);
 
 
 module.exports = router; //exportation du router

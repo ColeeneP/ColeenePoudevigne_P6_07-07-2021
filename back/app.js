@@ -1,20 +1,22 @@
 const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
+const helmet = require('helmet'); // middleware tier d'express pour la sécurisation
+const dotenv = require('dotenv').config(); // fait appel à dotenv pour sécurisé la connexion à la BDD
+const mongoSanitize = require('express-mongo-sanitize'); // middleware de prévention contre les injections opérateur
 
 const sauceRoutes = require('./routes/sauce'); //importation du router
 const userRoutes = require('./routes/user');
 
 // connexion à MongoDB
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb+srv://coleene:OpenClassrooms@cluster0.gt548.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(process.env.DB_HOST,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
-
-const app = express();
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,7 +25,11 @@ app.use((req, res, next) => {
     next();
   });
 
+
+app.use(helmet());
 app.use(bodyParser.json());
+app.use(mongoSanitize()); // Clear user data
+
 
 // Appel des routers
 app.use('/images', express.static(path.join(__dirname, 'images')));
