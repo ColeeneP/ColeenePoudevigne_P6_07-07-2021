@@ -50,7 +50,12 @@ Effectuer la commande <code>nodemon server</code> dans le dossier back.<br />
 
 ### Packages utilisés :
 <code>npm install --save mongoose-unique-validator</code><br />
+<code>npm install --save dotenv</code><br />
 <code>npm install --save bcrypt</code><br />
 <code>npm install --save jsonwebtoken</code><br />
 <code>npm install --save multer</code><br />
 <code>npm install --save helmet</code><br />
+<code>npm install --save express-rate-limit</code><br />
+<code>npm install --save password-validator</code><br />
+<code>npm install --save email-validator</code><br />
+<code>npm install --save maskdata</code><br />
