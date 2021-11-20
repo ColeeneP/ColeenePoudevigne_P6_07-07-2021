@@ -19,7 +19,6 @@ schemaPassword
 .has().not().spaces()                           // Ne doit pas contenir d'espace
 
 exports.signup = (req, res, next) => {
-  console.log(schemaPassword.validate(req.body.password))
   const emailCryptoJs = CryptoJS.HmacSHA512(req.body.email, `${process.env.CRYPTOJS_RANDOM_SECRET_KEY}`).toString();
   if (emailValidator.validate(req.body.email) && schemaPassword.validate(req.body.password)) {
     bcrypt.hash(req.body.password, 10) // hash du mdp, fonction asynchrone, algorithme exécuté 10 fois
@@ -45,12 +44,12 @@ exports.signup = (req, res, next) => {
     User.findOne({ email: emailCryptoJs }) // On cherche dans la BDD le user correspondant à l'email (unique)
       .then(user => {
         if (!user) {
-          return res.status(401).json({ error: 'Utilisateur non trouvé !' }); // si aucun mail correspondant n'existe
+          return res.status(401).json({ error: 'Utilisateur non trouvé !' }); 
         }
         bcrypt.compare(req.body.password, user.password) // on fait appel à bcrypt pour comparer le mdp saisi à celui dans la BDD
           .then(valid => {
             if (!valid) {
-              return res.status(401).json({ error: 'Mot de passe incorrect !' }); // si mdp incorrect
+              return res.status(401).json({ error: 'Mot de passe incorrect !' }); 
             }
             res.status(200).json({
               userId: user._id,

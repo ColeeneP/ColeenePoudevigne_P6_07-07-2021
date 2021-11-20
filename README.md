@@ -7,45 +7,27 @@ Parcours Developpeur Web par OpenClassrooms
   <ul>Stocker des données de manière sécurisée</ul>
  
 ## Scénario
-<p>Vous êtes développeur backend freelance et vous travaillez depuis quelques années sur des projets web pour des startups ou des grandes entreprises.<br />
-La semaine dernière, vous avez reçu un mail vous proposant un nouveau projet.<br />
-La marque So Pekocko, qui crée des sauces piquantes, connaît un franc succès, en partie grâce à sa chaîne de vidéos YouTube “La piquante”.<br />
-L’entreprise souhaite désormais développer une application d’évaluation de ses sauces piquantes, appelée “Piquante”.<br />
-Même si l’application deviendra peut-être un magasin en ligne dans un futur proche, Sophie, la product owner de So Pekocko, a décidé que le MVP du projet sera une application web 
-permettant aux utilisateurs d’ajouter leurs sauces préférées et de liker ou disliker les sauces ajoutées par les autres utilisateurs.<br />
-Lors de votre premier jour, vous discutez avec elle sur la messagerie instantanée interne de l’entreprise.</p>
+<p>Vous avez passé la dernière année en tant que développeur back-end indépendant et vous avez travaillé sur plusieurs projets de tailles et de difficultés variées.<br />
+La semaine dernière, vous avez reçu un message sur votre plateforme de freelance vous demandant de l'aide pour un nouveau projet. Les sauces piquantes sont de plus en plus populaires, en grande partie grâce à la série YouTube « Hot Ones » . C’est pourquoi ce nouveau client, la marque de condiments à base de piment Piiquante, veut développer une application web de critique des sauces piquantes appelée « Hot Takes » .</p>
+<p>Si la responsable produit de Piiquante souhaite à terme transformer l'application d'évaluation en une boutique en ligne, elle souhaite que la première version soit une « galerie de sauces » permettant aux utilisateurs de télécharger leurs sauces piquantes préférées et de liker ou disliker les sauces que d'autres partagent. Le front-end de l'application a été développé à l'aide d'Angular et a été précompilé après des tests internes, mais Piiquante a besoin d'un développeur back-end pour construire l'API.<br />
+
+Le délai est raisonnable, vous décidez donc d'accepter le projet. Après avoir rencontré Paula, la cheffe de produit de Piiquante, elle vous envoie l’email suivant :</p>
 
 <blockquote>
-Sophie : Bonjour et bienvenue parmi nous !<br /><br />
-Vous : Merci !<br /><br />
-Sophie : Voici quelques informations dont tu vas avoir besoin pour développer notre application. Le côté frontend de l'application a déjà été développé. Nous avons besoin de 
-toi pour le backend et la création de l'API.<br /><br />
-Vous : Ah super ! J'ai hâte de démarrer. Est-ce qu'il y a d'autres choses que je dois savoir ?<br /><br />
-Sophie : Oui nous avons récemment eu quelques attaques sur notre site web. Je suis assez inquiète. Il faudra donc être vigilent losque tu crééeras ton API. Veille bien à ce
-qu'elle utilise des pratiques de code sécurisées.<br />
-Ah oui aussi, les données personnelles de nos utilisateurs doivent impérativement être protégées, que ce soit côté API ou côté base de données grâce
-à des méthodes de masquage.<br /><br />
-Vous : OK ! Quelles technos souhaites-tu que j'utilise ?<br /><br />
-Sophie : L'API devra respecter les standards OWASP. Le projet devra être hébergé par un serveur Node.js. La base de données utilisée devra être MongoDB. Tu devras également
-utiliser le framework Express. Pour finir, tu devras utiliser un plug-in Mongoose pour garantir que toutes les erreurs de la base de données soient signalées.<br /><br />
-Vous : Merci, c'est très clair.<br /><br />
-Sophie : Une dernière chose : ton API devra fonctionner parfaitement avec notre frontend. Cela implique qu'il ne devra pas y avoir de régressions côté front.
-J'espère que tout est clair, n'hésite pas si tu as des questions !<br />
-Bon courage !</blockquote>
-
-<p>La deadline fixée pour la réalisation du projet étant raisonnable, vous décidez d’accepter la mission, sachant que vos connaissances de la stack Node.js, Express et Mongo, et 
-d’OWASP, sont parfaitement adaptées.<br />
-Quelques heures plus tard, vous trouvez un post-it de Marc, le développeur frontend, sur votre bureau.</p>
-<blockquote>Je t'ai envoyé de la doc pour l'API avec les pincipales routes CRUD à implémenter par mail.<br />
-Fais-moi signe si tu n'as rien reçu :)<br />
-Marc</blockquote>
-
-<p>Vous trouvez effectivement la <a href="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P6/Guidelines+API.pdf">documentation</a> dans votre boîte mail 
-ainsi que la <a href="https://s3.eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P6/P6_Note%20de%20cadrage%20So%20Pekocko_V3.pdf>note de cadrage</a> et un lien vers 
-le <a href="https://github.com/OpenClassrooms-Student-Center/dwj-projet6">repo GitHub</a>. Vous vous lancez immédiatement !</p>
+Bonjour,<br />
+Nous sommes ravis que vous contribuiez à cette nouvelle application web ! Nous sommes une petite marque, donc ce projet aura un impact important sur notre croissance.<br />
+Vous trouverez ci-joint les spécifications pour l'API. Vous pouvez également trouver un lien vers le <a href="https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6">repo du projet ici</a> où vous aurez accès à l'interface.<br />
+Merci de faire particulièrement attention aux exigences en matière de sécurité. Nous avons récemment été victimes d'attaques sur notre site web et nous voulons être sûrs que l'API de cette application est construite selon des pratiques de code sécurisées. Tous les mots de passe des utilisateurs recueillis par l'application doivent être protégés !<br /><br />
+Cordialement,<br/><br/>
+Paula Z<br />
+Cheffe de produit<br />
+Piiquante<br /><br />
+Pièce jointe :<br />
+<a href="https://s3.eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P6/Requirements_DW_P6.pdf">Requirements</a>
+</blockquote>
 
 ### L'affichage nécessite diverses manipulations :
-Effectuer la commande <code>ng serve</code> dans le dossier front.<br />
+Effectuer la commande <code>npm start</code> dans le dossier front.<br />
 Effectuer la commande <code>nodemon server</code> dans le dossier back.<br />
 
 ### Packages utilisés :
@@ -58,4 +40,3 @@ Effectuer la commande <code>nodemon server</code> dans le dossier back.<br />
 <code>npm install --save express-rate-limit</code><br />
 <code>npm install --save password-validator</code><br />
 <code>npm install --save email-validator</code><br />
-<code>npm install --save maskdata</code><br />

@@ -1,48 +1,21 @@
 {
-  "name": "ocr-p6-backend",
-  "version": "0.0.0",
+  "name": "hot-takes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "run-script-os",
+    "start:linux:darwin": "concurrently \"node ./node_modules/.bin/http-server -a localhost -p 8081\"  \"sleep 1 && open http://localhost:8081\"",
+    "start:win32": "node node_modules/live-server/live-server --port=8081"
   },
-  "private": true,
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@angular/animations": "~12.1.1",
-    "@angular/cdk": "^10.2.4",
-    "@angular/common": "~12.1.1",
-    "@angular/compiler": "~12.1.1",
-    "@angular/core": "~12.1.1",
-    "@angular/forms": "~12.1.1",
-    "@angular/material": "^10.2.4",
-    "@angular/platform-browser": "~12.1.1",
-    "@angular/platform-browser-dynamic": "~12.1.1",
-    "@angular/router": "~12.1.1",
-    "rxjs": "~7.2.0",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.11.4"
+    "concurrently": "^6.4.0",
+    "http-server": "^14.0.0",
+    "live-server": "^1.2.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.1.1",
-    "@angular/cli": "^12.1.1",
-    "@angular/compiler-cli": "~12.1.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
-    "jasmine-core": "~3.6.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "^6.3.4",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.3.5"
+    "run-script-os": "^1.1.6"
   }
 }
